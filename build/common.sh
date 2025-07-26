@@ -1186,7 +1186,6 @@ setup_efiboot()
 setup_stage()
 {
 	echo ">>> Setting up stage in ${1}"
-
 	MOUNTDIRS="
 /boot/msdos
 /dev
@@ -1203,6 +1202,7 @@ ${PLUGINSDIR}
 
 	shift
 
+	set -x
 	# kill stale pids for chrooted daemons
 	if [ -d ${STAGE}/var/run ]; then
 		PIDS=$(find ${STAGE}/var/run -name "*.pid")
